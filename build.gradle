@@ -32,7 +32,7 @@ loom {
 
 dependencies {
     minecraft libs.minecraft
-    mappings variantOf(libs.yarn.mappings) { classifier "v2" }
+    mappings variantOf(libs.yarn.mappings) { classifier "" }
     modImplementation libs.fabric.loader
     vineflowerDecompilerClasspath libs.vineflower
 }

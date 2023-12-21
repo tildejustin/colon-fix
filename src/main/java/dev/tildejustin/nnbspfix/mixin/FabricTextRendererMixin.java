@@ -19,15 +19,8 @@ public class FabricTextRendererMixin {
         return CharUtils.replaceNNBSPCharWithSpace(c);
     }
 
-    @Pseudo
-    @Mixin(targets = "net.minecraft.class_327$class_5224", remap = false)
-    public static class ShadowDrawerMixin {
-        @ModifyVariable(method = "onChar", at = @At(value = "HEAD"), index = 3, argsOnly = true, require = 0, remap = false)
-        private int mc116_1161(int c) {
-            return CharUtils.replaceNNBSPCharWithSpace(c);
-        }
-    }
-
+    // TextRenderer$Drawer in 1.16.2+
+    // TextRenderer$ShadowDrawer in 1.16-1.16.1
     @Pseudo
     @Mixin(targets = "net.minecraft.class_327$class_5232", remap = false)
     public static class DrawerMixin {
@@ -35,6 +28,12 @@ public class FabricTextRendererMixin {
         private int mc1162_1194(int c) {
             return CharUtils.replaceNNBSPCharWithSpace(c);
         }
+
+        @ModifyVariable(method = "onChar", at = @At(value = "HEAD"), index = 3, argsOnly = true, require = 0, remap = false)
+        private int mc116_1161(int c) {
+            return CharUtils.replaceNNBSPCharWithSpace(c);
+        }
+
     }
 }
 
@@ -58,7 +57,7 @@ public class FabricTextRendererMixin {
 //                    compiledPattern[i] = ' ';
 //            pattern.set(format, compiledPattern);
 //        }
-//        return format;
+//        return format;/
 //    }
 //}
 

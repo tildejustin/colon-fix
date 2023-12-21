@@ -5,7 +5,6 @@
   "client": [
     "FabricTextRendererMixin",
     "FabricTextRendererMixin$DrawerMixin",
-    "FabricTextRendererMixin$ShadowDrawerMixin",
     "LegacyFabricTextRendererMixin",
     "Post1122OrnitheTextRendererMixin",
     "Pre113OrnitheTextRendererMixin"

@@ -11,7 +11,8 @@ import org.spongepowered.asm.mixin.injection.At;
 public class Post1122OrnitheTextRendererMixin {
     @ModifyExpressionValue(
             method = {
-                    "m_7763273(Ljava/lang/String;FFIZ)I" /* 1.13-1.14.4 draw */
+                    "m_7763273(Ljava/lang/String;FFIZ)I", /* 1.13-1.13.2 draw */
+                    "m_4428166(Ljava/lang/String;FFIZ)F" /*1.14-1.14.4 drawLayer */
             },
             at = @At(value = "INVOKE", target = "Ljava/lang/String;charAt(I)C", ordinal = 0),
             require = 0, remap = false
