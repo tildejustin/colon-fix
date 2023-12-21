@@ -13,7 +13,6 @@ base {
 repositories {
     maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots" }
     maven { url "https://jitpack.io" }
-    // flatDir { dirs "libs" }
 }
 
 loom {
@@ -25,11 +24,15 @@ loom {
     runConfigs.configureEach {
         ideConfigGenerated = false
     }
+    validateAccessWidener {
+        enabled = false
+    }
+    accessWidenerPath = file("src/main/resources/nnbsp-fix.accesswidener")
 }
 
 dependencies {
     minecraft libs.minecraft
-    mappings variantOf(libs.yarn.mappings) { classifier "" } // v2 for non-Jitpack mappings
+    mappings variantOf(libs.yarn.mappings) { classifier "v2" }
     modImplementation libs.fabric.loader
     vineflowerDecompilerClasspath libs.vineflower
 }
@@ -42,12 +45,11 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
-    if (JavaVersion.current().isJava9Compatible()) it.options.release.set(8)
+    it.options.release.set(20)
 }
 
 java {
-    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
-    // withSourcesJar()
+    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_20
 }
 
 jar {

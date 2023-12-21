@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "dev.tildejustin.nnbspfix.mixin",
+  "compatibilityLevel": "JAVA_11",
+  "client": [
+    "FabricTextRendererMixin",
+    "FabricTextRendererMixin$DrawerMixin",
+    "FabricTextRendererMixin$ShadowDrawerMixin",
+    "LegacyFabricTextRendererMixin",
+    "Post1122OrnitheTextRendererMixin",
+    "Pre113OrnitheTextRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
